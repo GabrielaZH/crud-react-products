@@ -29,16 +29,16 @@ namespace ApiBoutique
             services.AddControllers();
             services.AddSwaggerGen();
 
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy(name: "_CorsPolicy",
-            //        builder =>
-            //        {
-            //            builder.WithOrigins(this.Configuration["URLClient:localhost"])
-            //            .AllowAnyHeader()
-            //            .AllowAnyMethod();
-            //        });
-            //});
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "_CorsPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins(this.Configuration["URLClient:localhost"])
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                    });
+            });
 
             services.AddDbContextPool<DBContext>(
              options => options.UseSqlServer(Configuration.GetConnectionString("Boutique")));
@@ -69,7 +69,7 @@ namespace ApiBoutique
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllers().RequireCors("_CorsPolicy");
+                endpoints.MapControllers().RequireCors("_CorsPolicy");
                 endpoints.MapControllers();
             });
         }

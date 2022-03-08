@@ -1,0 +1,19 @@
+.line{
+    height: 1px;
+    background-color: black;
+    border: none;
+    width: 40%;
+    padding-right: 60%;
+
+}
+
+.modal-product{
+    position: fixed !important;
+    float: left !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    outline: 0 !important;
+    background: rgba(0,0,0, 0.8) !important;
+}
